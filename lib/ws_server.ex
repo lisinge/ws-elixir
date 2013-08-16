@@ -10,8 +10,9 @@ defmodule WebSocketServer do
         {'/',    HelloHandler, []}
       ]}
     ])
-    :cowboy.start_http :my_http_listener, 100, [{:port, 8080}], [{:env, [{:dispatch, dispatch}]}]
-    IO.puts "Started listening on port 8080..."
+    port = binary_to_integer(System.get_env("PORT")) || 8080
+    :cowboy.start_http :my_http_listener, 100, [{:port, port}], [{:env, [{:dispatch, dispatch}]}]
+    IO.puts "Started listening on port #{port}..."
 
     WebSocketSup.start_link
   end

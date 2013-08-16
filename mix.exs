@@ -2,7 +2,7 @@ defmodule WsElixir.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :"ws-elixir",
+    [ app: :ws_elixir,
       version: "0.0.1",
       deps: deps ]
   end
@@ -20,7 +20,7 @@ defmodule WsElixir.Mixfile do
   defp deps do
     [
       {:cowboy, "0.8.6", github: "extend/cowboy"},
-      {:gproc, %r".*", github: "esl/gproc"},
+      {:gproc, "0.2.16-19-g6f7f6c3", github: "esl/gproc"},
     ]
   end
 end
